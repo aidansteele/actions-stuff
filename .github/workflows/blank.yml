@@ -1,0 +1,17 @@
+name: CI
+on:
+  push:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - run: echo $EVENT
+        env:
+          EVENT: ${{ toJson(github) }}
+
+      - run: env | sort
+        env:
+          ACTOR_TYPE: ${{ github.event.sender.type }}
