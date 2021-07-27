@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - run: echo "1\n2" | parallel -k echo hi
+      - run: cat .github/workflows/blank.yml | parallel -k "echo hi {}"
         env:
           EVENT: ${{ toJson(github) }}
 
