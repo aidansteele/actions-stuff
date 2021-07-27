@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - run: echo "hello world" | parallel -d " " -k "echo hi {}"
+      - run: echo "hello world" | parallel -d " " -k " sh -c 'for i in $(seq 1 5); do echo hi {}; sleep 1s; done'"
         env:
           EVENT: ${{ toJson(github) }}
 
