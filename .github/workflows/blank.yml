@@ -7,9 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        something: else
       
-      - run: echo $EVENT
+      - run: echo "1\n2" | parallel -k echo hi
         env:
           EVENT: ${{ toJson(github) }}
 
