@@ -8,6 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
+      - run: env | sort
+      
       - run: echo "hello world" | parallel -d " " bash bin.sh {}
         env:
           EVENT: ${{ toJson(github) }}
