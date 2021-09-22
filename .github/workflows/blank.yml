@@ -1,6 +1,6 @@
 name: CI
 on:
-  push:
+  pull_request:
   
 jobs:
   build:
@@ -17,3 +17,5 @@ jobs:
       - run: env | sort
         env:
           ACTOR_TYPE: ${{ github.event.sender.type }}
+
+# some pr
